@@ -10,6 +10,19 @@ class GlobalOptArgs(BaseModel):
     baudrate: int = 115200
     uart_timeout: int = 1
 
+G = GlobalOptArgs()
+
+### Begin App 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+@app.get("/c")
+def get_config():
+    global G
+    logger.info(G)
+    return G
+### End App
+
 
 def loop_forever(S):
     cnt=0

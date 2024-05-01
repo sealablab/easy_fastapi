@@ -1,8 +1,11 @@
 # easy_fastapi
+user@box:~/easy_fastapi $ uvicorn simple_main:app  --reload --host 0.0.0.0 --port 8001
+
 
 ## Venv (initial setup)
 ``` sh
 user@DevTerm1:~/easy_fastapi $ python3 -m venv .venv
+
 user@DevTerm1:~/easy_fastapi $ . ./.venv/bin/activate
 (.venv) user@DevTerm1:~/easy_fastapi $
 ```

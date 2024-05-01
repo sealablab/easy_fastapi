@@ -13,6 +13,7 @@ class GlobalOptArgs(BaseModel):
 
 def loop_forever(S):
     cnt=0
+    logger.info(S)
     while (True):
         cnt = cnt + 1
         ln = S.readline()
@@ -24,7 +25,7 @@ if __name__ == '__main__':
     Args = GlobalOptArgs()
     logger.info(Args)
     S = serial.Serial(Args.uart_p, Args.baudrate, timeout=Args.uart_timeout)
-    logger.info(S)
+    loop_forever(S)
     #S = serial.Serial(Args.uart_p, Args.baudrate, Args.uart_timeout)
     #S = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
  

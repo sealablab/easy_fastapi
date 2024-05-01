@@ -6,8 +6,9 @@ import serial  # This is the "pyserial" package
 app = FastAPI()
 
 class GlobalOptArgs(BaseModel):
-    uart_p: str
+    uart_p: str = '/dev/ttyACM0'
     baudrate: int = 115200
+    uart_timeout: int = 1
 
 
 def loop_forever(S):
@@ -20,7 +21,10 @@ def loop_forever(S):
         
 if __name__ == '__main__':
     logger.info("Main")
-    S = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
-    logger.info(f"--- Serial:{S}")
-    S = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
+    Args = GlobalOptArgs()
+    logger.info(Args)
+    S = serial.Serial(Args.uart_p, Args.baudrate, timeout=Args.uart_timeout)
+    logger.info(S)
+    #S = serial.Serial(Args.uart_p, Args.baudrate, Args.uart_timeout)
+    #S = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
  

@@ -14,9 +14,10 @@ user@DevTerm1:~/easy_fastapi $ . ./.venv/bin/activate
 ```
 ## dependencies
 ``` sh
+pip install loguru 
 pip install pydantic  
 pip install "uvicorn[standard]"
-pip install fastapi
+pip install fastapi fastapi-utils
 ```
 
 
